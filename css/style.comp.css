@@ -1,9 +1,85 @@
+:root {
+  /* Colors */
+  --color-primary: #eb2f64;
+  --color-primary-light: #FF3366;
+  --color-primary-dark: #BA265D;
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+  /* Font sizes */
+  --font-size-xxxl: 2.5rem;
+  --font-size-xxl: 1.8rem;
+  --font-size-xl: 1.6rem;
+  --font-size-l: 1.4rem;
+  --font-size-m: 1.2rem;
+  --font-size-s: 1rem;
+  --font-size-xs: 0.8rem;
+  /* Font weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  /* Margins and paddings */
+  --mg-xxxl: 8rem;
+  --mg-xxl: 6rem;
+  --mg-xl: 4rem;
+  --mg-l: 3rem;
+  --mg-m: 2rem;
+  --mg-s: 1.5rem;
+  --mg-xs: 1rem;
+  --mg-xxs: 0.5rem;
+  /* Border radius */
+  --br-radius: 3px;
+  /* Box shadows */
+  --shadow-light: 0 2rem 6rem rgba(0, 0, 0, 0.1);
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --line: 1px solid var(--color-grey-light-2)
+
+; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%;
+  /* 1rem = 10px */
+  box-sizing: border-box; }
+  @media only screen and (max-width: 68.75em) {
+    html {
+      font-size: 50%;
+      /* 1rem = 8px */ } }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-grey-dark-2);
+  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh; }
+
 .container {
   max-width: 120rem;
   margin: 8rem auto;
   background-color: var(--color-grey-light-2);
   box-shadow: var(--shadow-dark);
   min-height: 50rem; }
+  @media only screen and (max-width: 75em) {
+    .container {
+      margin: 0;
+      box-shadow: none;
+      max-width: 100%;
+      width: 100%; } }
 
 .header {
   font-size: 1.4rem;
@@ -16,6 +92,9 @@
 
 .content {
   display: flex; }
+  @media only screen and (max-width: 56.25em) {
+    .content {
+      flex-direction: column; } }
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
@@ -34,6 +113,9 @@
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line); }
+  @media only screen and (max-width: 56.25em) {
+    .detail {
+      padding: 3rem; } }
 
 .description {
   background-color: #fff;
@@ -41,6 +123,10 @@
   padding: 3rem;
   flex: 0 0 60%;
   margin-right: 4.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .description {
+      padding: 2rem;
+      margin-right: 3rem; } }
 
 .user-reviews {
   display: flex;
@@ -129,10 +215,20 @@
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .side-nav {
+      display: flex;
+      margin: 0; } }
   .side-nav_item {
     position: relative; }
     .side-nav_item:not(:last-child) {
       margin-bottom: .5rem; }
+      @media only screen and (max-width: 56.25em) {
+        .side-nav_item:not(:last-child) {
+          margin-bottom: 0; } }
+    @media only screen and (max-width: 56.25em) {
+      .side-nav_item {
+        flex: 1; } }
   .side-nav_item::before {
     content: "";
     position: absolute;
@@ -159,6 +255,10 @@
     z-index: 10;
     display: flex;
     align-items: center; }
+    @media only screen and (max-width: 56.25em) {
+      .side-nav_link:link, .side-nav_link:visited {
+        justify-content: center;
+        padding: 2rem; } }
   .side-nav_icon {
     height: 1.75rem;
     width: 1.75rem;
@@ -170,6 +270,9 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .legal {
+      display: none; } }
 
 .gallery {
   display: flex; }
@@ -283,6 +386,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between; }
+  .recommend_count {
+    margin-right: auto; }
+  .recommend_friends {
+    display: flex; }
   .recommend_photo {
     box-sizing: content-box;
     height: 4rem;
@@ -290,7 +397,7 @@
     border-radius: 50%;
     border: #fff 3px solid; }
     .recommend_photo:not(:last-child) {
-      margin-right: -1.5rem; }
+      margin-right: -2rem; }
 
 .review {
   background-color: #fff;
@@ -299,6 +406,11 @@
   padding: 3rem;
   position: relative;
   overflow: hidden; }
+  @media only screen and (max-width: 56.25em) {
+    .review {
+      padding: 2rem;
+      margin-right: 3rem;
+      margin-bottom: 3rem; } }
   .review_text {
     margin-bottom: 2rem;
     z-index: 10;
@@ -339,6 +451,9 @@
 .cta {
   padding: 3.5rem 0;
   text-align: center; }
+  @media only screen and (max-width: 56.25em) {
+    .cta {
+      padding: 2.5rem 0; } }
   .cta_book-now {
     font-size: 2rem;
     font-weight: 300;
@@ -382,69 +497,3 @@
   .btn:focus {
     outline: none;
     animation: pulsate 1s infinite; }
-
-:root {
-  /* Colors */
-  --color-primary: #eb2f64;
-  --color-primary-light: #FF3366;
-  --color-primary-dark: #BA265D;
-  --color-grey-light-1: #faf9f9;
-  --color-grey-light-2: #f4f2f2;
-  --color-grey-light-3: #f0eeee;
-  --color-grey-light-4: #ccc;
-  --color-grey-dark-1: #333;
-  --color-grey-dark-2: #777;
-  --color-grey-dark-3: #999;
-  /* Font sizes */
-  --font-size-xxxl: 2.5rem;
-  --font-size-xxl: 1.8rem;
-  --font-size-xl: 1.6rem;
-  --font-size-l: 1.4rem;
-  --font-size-m: 1.2rem;
-  --font-size-s: 1rem;
-  --font-size-xs: 0.8rem;
-  /* Font weights */
-  --font-weight-light: 300;
-  --font-weight-normal: 400;
-  --font-weight-bold: 700;
-  /* Margins and paddings */
-  --mg-xxxl: 8rem;
-  --mg-xxl: 6rem;
-  --mg-xl: 4rem;
-  --mg-l: 3rem;
-  --mg-m: 2rem;
-  --mg-s: 1.5rem;
-  --mg-xs: 1rem;
-  --mg-xxs: 0.5rem;
-  /* Border radius */
-  --br-radius: 3px;
-  /* Box shadows */
-  --shadow-light: 0 2rem 6rem rgba(0, 0, 0, 0.1);
-  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
-  --line: 1px solid var(--color-grey-light-2)
-
-; }
-
-* {
-  margin: 0;
-  padding: 0; }
-
-*,
-*::after,
-*::before {
-  box-sizing: inherit; }
-
-html {
-  font-size: 62.5%;
-  /* 1rem = 10px */
-  box-sizing: border-box; }
-
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--color-grey-dark-2);
-  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 100vh; }
